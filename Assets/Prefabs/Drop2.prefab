@@ -61,11 +61,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4472817230215180429, guid: 6c00950e920e4be4fa82dbc6a38163a7, type: 3}
       propertyPath: lowerLimit
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8309452531365501589, guid: 6c00950e920e4be4fa82dbc6a38163a7, type: 3}
       propertyPath: m_Name
       value: Drop2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8797580522792978942, guid: 6c00950e920e4be4fa82dbc6a38163a7, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c00950e920e4be4fa82dbc6a38163a7, type: 3}
