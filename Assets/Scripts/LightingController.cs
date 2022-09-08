@@ -14,7 +14,7 @@ public class LightingController : MonoBehaviour
     {
         EndLighting();
         EndThunder();
-        Invoke("StartLighting", 4.5f);   
+        Invoke("StartLighting", 10f);   
     }
 
     void StartLighting()
@@ -49,7 +49,7 @@ public class LightingController : MonoBehaviour
         lighting2.SetActive(false);   
         lighting3.SetActive(false);
 
-        float rand = Random.Range(10f, 12f);
+        float rand = Random.Range(30f, 60f);
         Invoke("StartLighting", rand);
     }
 
