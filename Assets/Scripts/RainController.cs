@@ -29,11 +29,10 @@ public class RainController : MonoBehaviour {
                 var drop = Instantiate(dropPrefab, new Vector3(x, dropHeight, z), Quaternion.identity);
                 drop.name = string.Format("Drop {0}", dropCount);
                 var dropRigidBody = drop.GetComponent<Rigidbody>();
-                dropRigidBody.velocity = new Vector3(0, dropVelocity, 0);
+                dropRigidBody.velocity = new Vector3(0, -dropVelocity, 0);
                 dropCount++;
             }
             time = 0;
         }
-
     }
 }
