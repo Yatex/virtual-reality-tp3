@@ -7,6 +7,7 @@ public class RainController : MonoBehaviour {
     [SerializeField] private float maxRainArea;
     [SerializeField] private float dropsPerSecond;
     [SerializeField] private float dropHeight;
+    [SerializeField] private float dropVelocity;
 
     private float time;
     private int dropCount;
@@ -27,6 +28,8 @@ public class RainController : MonoBehaviour {
                 float z = Random.Range(-maxRainArea, maxRainArea);
                 var drop = Instantiate(dropPrefab, new Vector3(x, dropHeight, z), Quaternion.identity);
                 drop.name = string.Format("Drop {0}", dropCount);
+                var dropRigidBody = drop.GetComponent<Rigidbody>();
+                dropRigidBody.velocity = new Vector3(0, dropVelocity, 0);
                 dropCount++;
             }
             time = 0;
