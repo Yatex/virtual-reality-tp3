@@ -226,10 +226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e47ca6396772394499a54649492f695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropPrefab: {fileID: 8309452531365501589, guid: 6c00950e920e4be4fa82dbc6a38163a7, type: 3}
-  maxRainArea: 40
-  dropsPerSecond: 600
+  dropPrefab: {fileID: 4443956032877403639, guid: 4f1a0068243d88c49a2dd25f15163217, type: 3}
+  maxRainArea: 50
+  dropsPerSecond: 1000
   dropHeight: 20
+  dropVelocity: 20
 --- !u!82 &573892800
 AudioSource:
   m_ObjectHideFlags: 0
@@ -341,6 +342,9 @@ MonoBehaviour:
   audioSource: {fileID: 573892800}
   audioClip1: {fileID: 8300000, guid: 5365e95446f5177418dd0b0728ccf2f7, type: 3}
   audioClip2: {fileID: 8300000, guid: c59e3d8ffee0e7943bc45bbff15917d1, type: 3}
+  audioClip3: {fileID: 0}
+  audioClip4: {fileID: 0}
+  audioClip5: {fileID: 0}
 --- !u!1 &574406276
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +389,7 @@ GameObject:
   - component: {fileID: 671696265}
   - component: {fileID: 671696264}
   - component: {fileID: 671696263}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884397186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

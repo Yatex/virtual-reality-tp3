@@ -23,11 +23,6 @@ public class DropController : MonoBehaviour {
 
     public void OnTriggerEnter(Collider collider) {
         if (!ignoreLayers.Contains(collider.gameObject.layer)) {
-            if (poolLayers.Contains(collider.gameObject.layer)) {
-                var pos = new Vector3(transform.position.x, 0.5f, transform.position.z);
-                var pool = Instantiate(poolPrefab, pos, Quaternion.identity);
-                pool.name = string.Format("Pool {0}", this.name);
-            }
             Destroy(this.gameObject);
         }
     }
