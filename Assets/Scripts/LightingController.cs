@@ -38,7 +38,7 @@ public class LightingController : MonoBehaviour
             case 2:
                 lighting3.SetActive(true);   
                 Invoke("EndLighting", .125f);  
-                Invoke("StartThunder", .400f);  
+                Invoke("StartThunder", .400f);
                 break;
             default:
                 Debug.LogError("StartLighting error");
@@ -51,15 +51,12 @@ public class LightingController : MonoBehaviour
         lighting1.SetActive(false);   
         lighting2.SetActive(false);   
         lighting3.SetActive(false);
-
-        float rand = Random.Range(30f, 60f);
-        Invoke("StartLighting", rand);
     }
 
     void StartThunder()
     {
         audioSource.SetActive(true);
-        Invoke("EndThunder", 3.5f);
+        Invoke("EndThunder", 2.0f);
     }
 
     void EndThunder()

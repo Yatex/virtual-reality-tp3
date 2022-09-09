@@ -28,6 +28,7 @@ public class RainController : MonoBehaviour {
 
         if (!musicAudioSource.isPlaying) {
             dropFrequency = float.MaxValue;
+            rainAudioSource.Stop();
         }
 
         if (songTime >= 1f && musicAudioSource.isPlaying) {
