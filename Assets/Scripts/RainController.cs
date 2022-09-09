@@ -84,7 +84,7 @@ public class RainController : MonoBehaviour {
     }
 
     private float volumeFunc(float x) {
-        var y = x / 4f;
+        var y = x / 4.5f;
         if (y > 1) y = 1; 
         if (y < 0) y = 0;
         return y;

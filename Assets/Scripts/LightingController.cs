@@ -27,12 +27,12 @@ public class LightingController : MonoBehaviour
         {
             case 0:
                 lighting1.SetActive(true);
-                Invoke("EndLighting", .75f);    // in 75 ms it will call EndLighting 
+                Invoke("EndLighting", .125f);    // in 75 ms it will call EndLighting 
                 Invoke("StartThunder", .100f);  // in 200 ms it will call StartThunder   
                 break;
             case 1:
                 lighting2.SetActive(true);   
-                Invoke("EndLighting", .100f);  
+                Invoke("EndLighting", .125f);  
                 Invoke("StartThunder", .200f);
                 break;  
             case 2:
@@ -67,7 +67,7 @@ public class LightingController : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (time > 0.2f) {
+        if (time > 0.1f) {
             var spectrum = new float[64];
             var songIntensity = 0f;
             music.GetSpectrumData(spectrum, 0, FFTWindow.Hamming);

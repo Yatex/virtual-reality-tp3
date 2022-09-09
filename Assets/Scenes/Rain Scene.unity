@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5d6cec805b3dc40926facdc2a069e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightingTrigger: 3.4
+  lightingTrigger: 2.5
   lighting1: {fileID: 326274490}
   lighting2: {fileID: 326274489}
   lighting3: {fileID: 326274488}
