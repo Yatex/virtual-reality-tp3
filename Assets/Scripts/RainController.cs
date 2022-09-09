@@ -29,7 +29,7 @@ public class RainController : MonoBehaviour {
             dropFrequency = float.MaxValue;
         }
 
-        if (songTime >= 0.5f && audioSource.isPlaying) {
+        if (songTime >= 1f && audioSource.isPlaying) {
             var spectrum = new float[64];
             var songIntensity = 0f; 
             audioSource.GetSpectrumData(spectrum, 0, FFTWindow.Hamming);
@@ -46,7 +46,9 @@ public class RainController : MonoBehaviour {
             }
             Debug.Log(string.Format("SongIntensity: {0} | DropsPerSec {1} | DropsSpeed: {2}", songIntensity, dropsPerSecond, dropVelocity));
             songTime = 0;
+            dropTime = 0;
         }
+
         if (dropTime >= dropFrequency) {
             var dropAmount = Mathf.RoundToInt(dropTime / dropFrequency);
             for (int i = 0; i < dropAmount; i++) {

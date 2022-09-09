@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class LightingController : MonoBehaviour
 {
+    [SerializeField] float lightingTrigger = 2.5f;
     public GameObject lighting1;
     public GameObject lighting2;
     public GameObject lighting3;
 
     public GameObject audioSource;
     public AudioSource music;
+    private float time;
 
     void Start()
     {
         EndLighting();
-        EndThunder(); 
+        EndThunder();
+        time = 0;
     }
 
     void StartLighting()
@@ -66,20 +69,25 @@ public class LightingController : MonoBehaviour
 
     void Update()
     {
-        var spectrum = new float[64];
-        var songIntensity = 0f;
-        music.GetSpectrumData(spectrum, 0, FFTWindow.Hamming);
-        for (int i = 0; i < 64; i++)
-        {
-            songIntensity += 10 * Mathf.Pow(Mathf.Abs(spectrum[i]), 0.2f);
-        }
-        if (songIntensity > 160.0)
-        {
-            StartLighting();
-        }
-        if (music.isPlaying)
-        {
-            songIntensity = 0.0f;
+        time += Time.deltaTime;
+        if (time > 0.2f) {
+            var spectrum = new float[64];
+            var songIntensity = 0f;
+            music.GetSpectrumData(spectrum, 0, FFTWindow.Hamming);
+            for (int i = 0; i < 64; i++)
+            {
+                songIntensity += 10 * Mathf.Pow(Mathf.Abs(spectrum[i]), 0.2f);
+            }
+            songIntensity = songIntensity / 64f;
+            if (songIntensity > lightingTrigger)
+            {
+                StartLighting();
+            }
+            if (music.isPlaying)
+            {
+                songIntensity = 0.0f;
+            }
+            time = 0;
         }
     }
 }

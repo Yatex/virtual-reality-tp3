@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d11d338e6a849d84f85a289f91b3fa00, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.60840446, g: 0.6037939, b: 0.611015, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -305,9 +305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropPrefab: {fileID: 4443956032877403639, guid: 4f1a0068243d88c49a2dd25f15163217, type: 3}
-  maxRainArea: 50
-  dropsPerSecond: 1000
-  dropHeight: 20
+  maxRainArea: 40
+  dropHeight: 15
   dropVelocity: 20
   audioSource: {fileID: 573892800}
 --- !u!82 &573892800
@@ -424,7 +423,7 @@ MonoBehaviour:
   audioClip3: {fileID: 8300000, guid: df6d198e67a05d544bc0d53f667fb224, type: 3}
   audioClip4: {fileID: 8300000, guid: fda02aa3e0a3cfc45a87f079a927c600, type: 3}
   audioClip5: {fileID: 8300000, guid: 49d2e1c02031ab242b576d4c6cac0183, type: 3}
-  audioClip6: {fileID: 8300000, guid: a93a6b840ca80614f9b9949ceddd4bd4, type: 3}
+  audioClip6: {fileID: 8300000, guid: 17a516c863afdb44782a3a375e43f56a, type: 3}
 --- !u!114 &573892802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,10 +436,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5d6cec805b3dc40926facdc2a069e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightingTrigger: 3.4
   lighting1: {fileID: 326274490}
   lighting2: {fileID: 326274489}
   lighting3: {fileID: 326274488}
-  audio: {fileID: 1271899521}
+  audioSource: {fileID: 1271899521}
   music: {fileID: 573892800}
 --- !u!1 &574406276
 GameObject:
@@ -502,7 +502,7 @@ Transform:
   m_GameObject: {fileID: 671696261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 100}
+  m_LocalScale: {x: 80, y: 1, z: 80}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1686259236}
@@ -600,7 +600,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
