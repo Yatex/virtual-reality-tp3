@@ -8,7 +8,7 @@ public class LightingController : MonoBehaviour
     public GameObject lighting2;
     public GameObject lighting3;
 
-    public GameObject audio;
+    public GameObject audioSource;
     public AudioSource music;
 
     void Start()
