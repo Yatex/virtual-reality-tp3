@@ -9,12 +9,12 @@ public class LightingController : MonoBehaviour
     public GameObject lighting3;
 
     public GameObject audio;
+    public AudioSource music;
 
     void Start()
     {
         EndLighting();
-        EndThunder();
-        Invoke("StartLighting", 10f);   
+        EndThunder(); 
     }
 
     void StartLighting()
@@ -66,6 +66,20 @@ public class LightingController : MonoBehaviour
 
     void Update()
     {
-        
+        var spectrum = new float[64];
+        var songIntensity = 0f;
+        music.GetSpectrumData(spectrum, 0, FFTWindow.Hamming);
+        for (int i = 0; i < 64; i++)
+        {
+            songIntensity += 10 * Mathf.Pow(Mathf.Abs(spectrum[i]), 0.2f);
+        }
+        if (songIntensity > 160.0)
+        {
+            StartLighting();
+        }
+        if (music.isPlaying)
+        {
+            songIntensity = 0.0f;
+        }
     }
 }
