@@ -55,13 +55,13 @@ public class LightingController : MonoBehaviour
 
     void StartThunder()
     {
-        audio.SetActive(true);
+        audioSource.SetActive(true);
         Invoke("EndThunder", 3.5f);
     }
 
     void EndThunder()
     {
-        audio.SetActive(false);
+        audioSource.SetActive(false);
     }
 
     void Update()
