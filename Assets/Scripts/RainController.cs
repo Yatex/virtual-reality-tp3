@@ -7,7 +7,8 @@ public class RainController : MonoBehaviour {
     [SerializeField] private float maxRainArea;
     [SerializeField] private float dropHeight;
     [SerializeField] private float dropVelocity;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource musicAudioSource;
+    [SerializeField] private AudioSource rainAudioSource;
 
     private float dropTime;
     private float songTime;
@@ -25,26 +26,30 @@ public class RainController : MonoBehaviour {
         dropTime += Time.deltaTime;
         songTime += Time.deltaTime;
 
-        if (!audioSource.isPlaying) {
+        if (!musicAudioSource.isPlaying) {
             dropFrequency = float.MaxValue;
         }
 
-        if (songTime >= 1f && audioSource.isPlaying) {
+        if (songTime >= 1f && musicAudioSource.isPlaying) {
             var spectrum = new float[64];
             var songIntensity = 0f; 
-            audioSource.GetSpectrumData(spectrum, 0, FFTWindow.Hamming);
+            musicAudioSource.GetSpectrumData(spectrum, 0, FFTWindow.Hamming);
             for (int i = 0; i < 64; i++) {
                 songIntensity += 10 * Mathf.Pow(Mathf.Abs(spectrum[i]), 0.2f);
             }
             songIntensity = songIntensity / 64;
             var dropsPerSecond = FrequencyFunc(songIntensity);
+            var rainVolume = volumeFunc(songIntensity);
             if (dropsPerSecond > 0) {
                 dropFrequency = 1 / dropsPerSecond;
                 dropVelocity = velocityFunc(songIntensity);
+                if (!rainAudioSource.isPlaying) rainAudioSource.Play();
+                rainAudioSource.volume = rainVolume;
             } else {
                 dropFrequency = float.MaxValue;
+                rainAudioSource.Pause();
             }
-            Debug.Log(string.Format("SongIntensity: {0} | DropsPerSec {1} | DropsSpeed: {2}", songIntensity, dropsPerSecond, dropVelocity));
+            Debug.Log(string.Format("SongIntensity: {0} | DropsPerSec {1} | DropsSpeed: {2} | Rain Volume {3}", songIntensity, dropsPerSecond, dropVelocity, rainVolume));
             songTime = 0;
             dropTime = 0;
         }
@@ -74,6 +79,13 @@ public class RainController : MonoBehaviour {
         var y = 36f*x - 50f;
         if (y < 0) y = 0;
         if (y > 70) y = 70;
+        return y;
+    }
+
+    private float volumeFunc(float x) {
+        var y = x / 4f;
+        if (y > 1) y = 1; 
+        if (y < 0) y = 0;
         return y;
     }
 }
