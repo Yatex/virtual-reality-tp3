@@ -231,6 +231,7 @@ MonoBehaviour:
   dropsPerSecond: 1000
   dropHeight: 20
   dropVelocity: 20
+  audioSource: {fileID: 573892800}
 --- !u!82 &573892800
 AudioSource:
   m_ObjectHideFlags: 0
