@@ -342,9 +342,10 @@ MonoBehaviour:
   audioSource: {fileID: 573892800}
   audioClip1: {fileID: 8300000, guid: 5365e95446f5177418dd0b0728ccf2f7, type: 3}
   audioClip2: {fileID: 8300000, guid: c59e3d8ffee0e7943bc45bbff15917d1, type: 3}
-  audioClip3: {fileID: 0}
-  audioClip4: {fileID: 0}
-  audioClip5: {fileID: 0}
+  audioClip3: {fileID: 8300000, guid: df6d198e67a05d544bc0d53f667fb224, type: 3}
+  audioClip4: {fileID: 8300000, guid: fda02aa3e0a3cfc45a87f079a927c600, type: 3}
+  audioClip5: {fileID: 8300000, guid: 49d2e1c02031ab242b576d4c6cac0183, type: 3}
+  audioClip6: {fileID: 8300000, guid: a93a6b840ca80614f9b9949ceddd4bd4, type: 3}
 --- !u!1 &574406276
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +810,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 572435354}
     m_Modifications:
+    - target: {fileID: 835559280799777098, guid: fa584686a559a724ea82300351dc08f8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 835559280799777099, guid: fa584686a559a724ea82300351dc08f8, type: 3}
+      propertyPath: m_text
+      value: 'Play Song -- Press 1,2,3,4,5 or 6
+
+        Stop -- Press S'
+      objectReference: {fileID: 0}
     - target: {fileID: 835559281300382394, guid: fa584686a559a724ea82300351dc08f8, type: 3}
       propertyPath: m_Name
       value: Pizarron

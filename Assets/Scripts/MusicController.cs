@@ -11,12 +11,14 @@ public class MusicController : MonoBehaviour
     public AudioClip audioClip3;
     public AudioClip audioClip4;
     public AudioClip audioClip5;
+    public AudioClip audioClip6;
 
     private KeyCode _playSong1= KeyCode.Alpha1;
     private KeyCode _playSong2 = KeyCode.Alpha2;
     private KeyCode _playSong3 = KeyCode.Alpha3;
     private KeyCode _playSong4 = KeyCode.Alpha4;
     private KeyCode _playSong5 = KeyCode.Alpha5;
+    private KeyCode _playSong6 = KeyCode.Alpha6;
     private KeyCode _noSong = KeyCode.S;
     //private KeyCode _playSong3 = KeyCode.Alpha3;
     //private KeyCode _playSong4 = KeyCode.Alpha4;
@@ -58,6 +60,12 @@ public class MusicController : MonoBehaviour
         {
             audioSource.Stop();
             audioSource.clip = audioClip5;
+            audioSource.Play();
+        }
+        if (Input.GetKey(_playSong6))
+        {
+            audioSource.Stop();
+            audioSource.clip = audioClip6;
             audioSource.Play();
         }
         if (Input.GetKey(_noSong))
